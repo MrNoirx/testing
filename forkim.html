@@ -5,6 +5,8 @@
 		let attempts = 0;
 		//Function to check if password is correct
 		function checkPassword(form) {
+
+			event.preventDefault();
 		
 		const hint = document.getElementById('hint');
 		const wrongPass = document.getElementById('wrongPass');
@@ -55,7 +57,7 @@
 	
 		<div class = "w3-card w3-center" style = "margin: auto; max-width: 600px;" >
 		
-			<form name = "formita" class = "w3-card-4" onsubmit = "return checkPassword(this);">
+			<form name = "formita" class = "w3-card-4" onsubmit = "return checkPassword(event, this);">
 				<p id = "wrongPass" class = "wrongPass"> Try again. </p>
 				<input type = "password" class = "w3-input w3-round-large w3-padding" placeholder = "Password" maxlength = "18" name = "pwd">	
 				<p id = "hint"> <b>Hint:</b> The Celebrity you said that my older brother looks like. </p>
