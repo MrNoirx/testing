@@ -1,0 +1,67 @@
+<!doctype HTML>
+<html>
+	
+	<script>
+		let attempts = 0;
+		//Function to check if password is correct
+		function checkPassword(form) {
+		
+		const hint = document.getElementById('hint');
+		const pass = "Cristiano Ronaldo";
+		const input = form.pwd.value;
+			
+			
+			//Passsword Checker
+			if(input === pass ) {
+				attempts = 0;
+				hint.style.display = 'none';
+				form.action = "forkim2.html";
+				return true;
+				
+			}else {
+				attempts++;
+				if(attempts >= 2) {
+					hint.style.display = 'block';
+			}
+			wrongPass.style.display = 'block';
+			return false;
+		}
+	}
+	</script>
+	
+	<head>
+	
+	<!-- Styles to decorate the webpage -->
+		<style>
+			#hint { display: none; color: black; } 
+			
+			.hidden-submitButton{ display: none; }
+			
+			.wrongPass { color: red; font-size: 14px; display: none; }
+			
+			
+		</style>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> 01001011 001001100 01001011 </title>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	</head>
+
+	<body>
+	
+	<!-- Breaklines to give more spaces down -->
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+		<div class = "w3-card w3-center" style = "margin: auto; max-width: 600px;" >
+		
+			<form name = "formita" class = "w3-card-4" onsubmit = "return checkPassword(this);" method = "POST">
+				<p id = "wrongPass" class = "wrongPass"> Try again. </p>
+				<input type = "password" class = "w3-input w3-round-large w3-padding" placeholder = "Password" maxlength = "18" name = "pwd">	
+				<p id = "hint"> <b>Hint:</b> The Celebrity you said that my older brother looks like. </p>
+				
+				<input type = "submit" class = "hidden-submitButton">
+			</form>
+		
+		</div>
+	</body>
+</html>
