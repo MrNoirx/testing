@@ -7,6 +7,7 @@
 		function checkPassword(form) {
 		
 		const hint = document.getElementById('hint');
+		const wrongPass = document.getElementById('wrongPass');
 		const pass = "Cristiano Ronaldo";
 		const input = form.pwd.value;
 			
@@ -15,7 +16,7 @@
 			if(input === pass ) {
 				attempts = 0;
 				hint.style.display = 'none';
-				form.action = "forkim2.html";
+				window.location.href = "forkim2.html";
 				return true;
 				
 			}else {
@@ -54,7 +55,7 @@
 	
 		<div class = "w3-card w3-center" style = "margin: auto; max-width: 600px;" >
 		
-			<form name = "formita" class = "w3-card-4" onsubmit = "return checkPassword(this);" method = "GET">
+			<form name = "formita" class = "w3-card-4" onsubmit = "return checkPassword(this);">
 				<p id = "wrongPass" class = "wrongPass"> Try again. </p>
 				<input type = "password" class = "w3-input w3-round-large w3-padding" placeholder = "Password" maxlength = "18" name = "pwd">	
 				<p id = "hint"> <b>Hint:</b> The Celebrity you said that my older brother looks like. </p>
