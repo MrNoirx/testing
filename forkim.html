@@ -1,58 +1,52 @@
-<!doctype HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Check</title>
+    <style>
+        #hint { display: none; color: black; }
+        .wrongPass { color: red; font-size: 14px; display: none; }
+    </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="w3-card w3-center" style="margin: auto; max-width: 600px;">
+        <form id="passwordForm" class="w3-card-4">
+            <p id="wrongPass" class="wrongPass">Try again.</p>
+            <input type="password" class="w3-input w3-round-large w3-padding" placeholder="Password" maxlength="18" name="pwd">
+            <p id="hint"><b>Hint:</b> The Celebrity you said that my older brother looks like.</p>
+            <input type="submit" class="hidden-submitButton" style="display:none;">
+        </form>
+    </div>
+
     <script>
         let attempts = 0;
 
-        // Function to check if password is correct
-        function checkPassword(event) {
-            // Prevent form submission to avoid reloading the page
-            event.preventDefault();
+        // Function to check if the password is correct
+        document.getElementById('passwordForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent form submission and page reload
 
             const hint = document.getElementById('hint');
             const wrongPass = document.getElementById('wrongPass');
             const pass = "Cristiano Ronaldo";
             const input = event.target.pwd.value;
-            
-            // Password Checker
+
             if (input === pass) {
                 attempts = 0;
                 hint.style.display = 'none';
+                wrongPass.style.display = 'none';  // Hide error message
                 window.location.href = "https://mrnoirx.github.io/testing/forkim2.html"; // Redirect to the correct page
             } else {
                 attempts++;
                 if (attempts >= 2) {
-                    hint.style.display = 'block';
+                    hint.style.display = 'block';  // Show the hint after 2 incorrect attempts
                 }
-                wrongPass.style.display = 'block';
+                wrongPass.style.display = 'block'; // Show the "Try again" message
             }
-        }
+        });
     </script>
-    
-    <head>
-        <!-- Styles to decorate the webpage -->
-        <style>
-            #hint { display: none; color: black; } 
-            .hidden-submitButton { display: none; }
-            .wrongPass { color: red; font-size: 14px; display: none; }
-        </style>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> 01001011 001001100 01001011 </title>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    </head>
-
-    <body>
-        <!-- Breaklines to give more spaces down -->
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        
-        <div class="w3-card w3-center" style="margin: auto; max-width: 600px;">
-            <form name="formita" class="w3-card-4" onsubmit="checkPassword(event)">
-                <p id="wrongPass" class="wrongPass"> Try again. </p>
-                <input type="password" class="w3-input w3-round-large w3-padding" placeholder="Password" maxlength="18" name="pwd">  
-                <p id="hint"> <b>Hint:</b> The Celebrity you said that my older brother looks like. </p>
-                
-                <input type="submit" class="hidden-submitButton">
-            </form>
-        </div>
-    </body>
+</body>
 </html>
