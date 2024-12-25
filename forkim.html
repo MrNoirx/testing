@@ -1,70 +1,76 @@
 <!doctype HTML>
 <html>
-	
+
 	<script>
 		let attempts = 0;
 		//Function to check if password is correct
-		function checkPassword(form) {
-
+		function checkPassword(event, form) {
+			// Prevent the form from submitting (and reloading the page)
 			event.preventDefault();
-		
-		const hint = document.getElementById('hint');
-		const wrongPass = document.getElementById('wrongPass');
-		const pass = "Cristiano Ronaldo";
-		const input = form.pwd.value;
-			
-			
-			//Passsword Checker
-			if(input === pass ) {
+			console.log("Form submitted");
+
+			const hint = document.getElementById('hint');
+			const wrongPass = document.getElementById('wrongPass');
+			const pass = "Cristiano Ronaldo";
+			const input = form.pwd.value;
+
+			// Password Checker
+			if (input === pass) {
 				attempts = 0;
 				hint.style.display = 'none';
-				window.open = "https://mrnoirx.github.io/testing/forkim2.html", "_self";
+				console.log("Password correct, redirecting...");
+				// Use window.location.href to ensure the page is redirected properly
+				window.location.href = "https://mrnoirx.github.io/testing/forkim2.html";
 				return true;
-				
-			}else {
+			} else {
 				attempts++;
-				if(attempts >= 2) {
+				console.log("Incorrect password, attempt #" + attempts);
+				if (attempts >= 2) {
 					hint.style.display = 'block';
+				}
+				wrongPass.style.display = 'block';
+				return false;
 			}
-			wrongPass.style.display = 'block';
-			return false;
 		}
-	}
 	</script>
-	
+
 	<head>
-	
-	<!-- Styles to decorate the webpage -->
+		<!-- Styles to decorate the webpage -->
 		<style>
-			#hint { display: none; color: black; } 
-			
-			.hidden-submitButton{ display: none; }
-			
-			.wrongPass { color: red; font-size: 14px; display: none; }
-			
-			
+			#hint {
+				display: none;
+				color: black;
+			}
+
+			.hidden-submitButton {
+				display: none;
+			}
+
+			.wrongPass {
+				color: red;
+				font-size: 14px;
+				display: none;
+			}
 		</style>
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title> 01001011 001001100 01001011 </title>
+		<title>01001011 001001100 01001011</title>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
 
 	<body>
-	
-	<!-- Breaklines to give more spaces down -->
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	
-		<div class = "w3-card w3-center" style = "margin: auto; max-width: 600px;" >
-		
-			<form name = "formita" class = "w3-card-4" onsubmit = "return checkPassword(event, this);">
-				<p id = "wrongPass" class = "wrongPass"> Try again. </p>
-				<input type = "password" class = "w3-input w3-round-large w3-padding" placeholder = "Password" maxlength = "18" name = "pwd">	
-				<p id = "hint"> <b>Hint:</b> The Celebrity you said that my older brother looks like. </p>
-				
-				<input type = "submit" class = "hidden-submitButton">
+		<!-- Breaklines to give more space -->
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+		<div class="w3-card w3-center" style="margin: auto; max-width: 600px;">
+			<form name="formita" class="w3-card-4" onsubmit="checkPassword(event, this)">
+				<p id="wrongPass" class="wrongPass"> Try again. </p>
+				<input type="password" class="w3-input w3-round-large w3-padding" placeholder="Password" maxlength="18" name="pwd">
+				<p id="hint"><b>Hint:</b> The Celebrity you said that my older brother looks like.</p>
+
+				<!-- Hidden submit button to allow Enter key to trigger form submission -->
+				<input type="submit" class="hidden-submitButton">
 			</form>
-		
 		</div>
 	</body>
 </html>
