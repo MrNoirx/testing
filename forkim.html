@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Check</title>
+    <title>01001011 001001100 01001011</title>
     <style>
         #hint { display: none; color: black; }
         .wrongPass { color: red; font-size: 14px; display: none; }
@@ -27,7 +27,7 @@
 
         // Function to check if the password is correct
         document.getElementById('passwordForm').addEventListener('submit', function (event) {
-            event.preventDefault();  // Prevent form submission and page reload
+            event.preventDefault();  
 
             const hint = document.getElementById('hint');
             const wrongPass = document.getElementById('wrongPass');
@@ -37,14 +37,14 @@
             if (input === pass) {
                 attempts = 0;
                 hint.style.display = 'none';
-                wrongPass.style.display = 'none';  // Hide error message
-                window.location.href = "https://mrnoirx.github.io/testing/forkim2.html"; // Redirect to the correct page
+                wrongPass.style.display = 'none';  
+                window.location.href = "https://mrnoirx.github.io/testing/forkim2.html"; 
             } else {
                 attempts++;
                 if (attempts >= 2) {
-                    hint.style.display = 'block';  // Show the hint after 2 incorrect attempts
+                    hint.style.display = 'block';  
                 }
-                wrongPass.style.display = 'block'; // Show the "Try again" message
+                wrongPass.style.display = 'block'; 
             }
         });
     </script>
